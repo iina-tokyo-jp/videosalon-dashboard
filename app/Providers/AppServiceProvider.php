@@ -29,7 +29,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        URL::forceScheme('https');
+        if (config('app.url') != 'http://localhost') {
+            URL::forceScheme('https');
+        }
 
         if(config('app.debug') && config('app.url') == 'http://localhost') {
             $filename = 'query_' . date('d-m-y') . '.log';
