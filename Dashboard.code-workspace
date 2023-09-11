@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.autoIndent": "none",
+		"html.format.templating": true,
+		"php.validate.executablePath": ""
+	}
+}

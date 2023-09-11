@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* ------------------------------------------------------------
+
+numeric.css
+
+------------------------------------------------------------ */
+table tr th {
+    text-align: center;
+}
+
+table tr td {
+    text-align: right;
+}
+
+/* for advertisement.blade.php */
+.adv_listArea {
+    width: 2800px;
+}
+
+.adv_list {
+    width: 100%;
+}
+
+.adv_list_item1 {
+    width: 5%;
+}
+
+.adv_list_item2 {
+    width: 4%;
+}
+
+.adv_list_item3 {
+    width: 3%;
+}
+
+/* for appraiser.blade.php */
+.apr_listArea {
+    width: 2400px;
+}
+
+.apr_list {
+    width: 100%;
+}
+
+.apr_list_item1 {
+    width: 10%;
+}
+
+.apr_list_item2 {
+    width: 6%;
+}
+
+.apr_list_item3 {
+    width: 5%;
+}
+
+.apr_list_item4 {
+    width: 4%;
+}
