@@ -48,6 +48,7 @@ Route::namespace('App\Http\Controllers')->group(function() {
         });
     });
 
+/*
     Route::group(['middleware' => ['auth', 'can:fnc4']], function () {
         Route::group(['prefix' => 'messages'], function () {
             Route::get('', 'MessageController@index')->name('messages');
@@ -78,8 +79,40 @@ Route::namespace('App\Http\Controllers')->group(function() {
             Route::get('/download-csv', 'BusinessController@downloadCsv')->name('businesses.downloadCsv');
         });
     });
+*/
+    Route::group(['middleware' => ['auth', 'can:fnc4']], function () {
+        Route::group(['prefix' => 'disporder'], function () {
+            Route::get('', 'AppraiserDispOrderController@index')->name('disporder');
+            Route::get('/select', 'AppraiserDispOrderController@selection')->name('disporder.select');
+            Route::post('/changeorder', 'AppraiserDispOrderController@changeOrder')->name('disporder.changeorder');
+        });
+    });
 
-/*
+    Route::group(['middleware' => ['auth', 'can:fnc5']], function () {
+        Route::group(['prefix' => 'messages'], function () {
+            Route::get('', 'MessageController@index')->name('messages');
+            Route::post('/change-all-status', 'MessageController@changeAllStatus')->name('messages.changeAllStatus');
+            Route::post('/change-each-status', 'MessageController@changeEachStatus')->name('messages.changeEachStatus');
+        });
+    });
+
+    Route::group(['middleware' => ['auth', 'can:fnc6']], function () {
+        Route::group(['prefix' => 'blogs'], function () {
+            Route::get('', 'BlogController@index')->name('blogs');
+            Route::post('/change-all-status', 'BlogController@changeAllStatus')->name('blogs.changeAllStatus');
+            Route::post('/change-each-status', 'BlogController@changeEachStatus')->name('blogs.changeEachStatus');
+        });
+    });
+
+    Route::group(['middleware' => ['auth', 'can:fnc7']], function () {
+        Route::group(['prefix' => 'adcodes'], function () {
+            Route::get('', 'AdcodeController@index')->name('adcodes');
+            Route::post('/change-all-status', 'AdcodeController@changeAllStatus')->name('adcodes.changeAllStatus');
+            Route::post('/change-each-status', 'AdcodeController@changeEachStatus')->name('adcodes.changeEachStatus');
+        });
+    });
+
+    /*
     Route::group(['middleware' => ['auth', 'can:fnc8']], function () {
         Route::group(['prefix' => 'sites'], function () {
             Route::get('', 'SitesController@index')->name('sites');
@@ -87,7 +120,6 @@ Route::namespace('App\Http\Controllers')->group(function() {
         });
     });
 */
-
     Route::group(['middleware' => ['auth', 'can:fnc8']], function () {
         Route::group(['prefix' => 'reviews'], function () {
             Route::get('', 'ReviewController@index')->name('reviews');
@@ -107,7 +139,7 @@ Route::namespace('App\Http\Controllers')->group(function() {
     });
 
     Route::group(['middleware' => ['auth', 'can:fnc10']], function () {
-        Route::group(['prefix' => 'rankings'], function () {
+       Route::group(['prefix' => 'rankings'], function () {
             Route::get('', 'RankingController@index')->name('rankings');
             Route::get('/select', 'RankingController@selection')->name('rankings.select');
 
@@ -125,7 +157,11 @@ Route::namespace('App\Http\Controllers')->group(function() {
 
 
         });
+
+        Route::group(['prefix' => 'mediacapture'], function () {
+            Route::get('', 'MediacaptureController@index')->name('mediacaptures');
+            // Route::post('/change-all-status', 'MediacapturesController@changeAllStatus')->name('mediacaptures.changeAllStatus');
+            // Route::post('/change-each-status', 'MediacapturesController@changeEachStatus')->name('mediacaptures.changeEachStatus');
+        });
     });
-
-
 });
