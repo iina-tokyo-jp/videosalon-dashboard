@@ -110,9 +110,14 @@ Route::namespace('App\Http\Controllers')->group(function() {
             Route::post('/change-all-status', 'AdcodeController@changeAllStatus')->name('adcodes.changeAllStatus');
             Route::post('/change-each-status', 'AdcodeController@changeEachStatus')->name('adcodes.changeEachStatus');
         });
+
+        Route::group(['prefix' => 'businesses'], function () {
+            Route::get('', 'BusinessController@index')->name('businesses');
+            Route::get('/download-csv', 'BusinessController@downloadCsv')->name('businesses.downloadCsv');
+        });
     });
 
-    /*
+/*
     Route::group(['middleware' => ['auth', 'can:fnc8']], function () {
         Route::group(['prefix' => 'sites'], function () {
             Route::get('', 'SitesController@index')->name('sites');
@@ -153,9 +158,6 @@ Route::namespace('App\Http\Controllers')->group(function() {
 
             Route::get('/recommended', 'RankingController@recommended')->name('rankings.recommended');
             Route::get('/recommendedUpdate', 'RankingController@recommendedUpdate')->name('rankings.recommendedUpdate');
-
-
-
         });
 
         Route::group(['prefix' => 'mediacapture'], function () {

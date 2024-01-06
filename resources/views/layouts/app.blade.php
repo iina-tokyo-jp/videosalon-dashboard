@@ -62,6 +62,8 @@
                 @can('fnc7')
                     <a class="dropdown-item" href="{{ route('businesses') }}">事業管理</a>
                 @endcan
+
+
                 @can('fnc8')
                     <a class="dropdown-item" href="{{ route('reviews') }}">レビュー管理</a>
                 @endcan
@@ -72,9 +74,12 @@
 
                 @can('fnc10')
                     <a class="dropdown-item" href="{{ route('rankings') }}">ランキング管理</a>
+                    <a class="dropdown-item" href="{{ route('mediacaptures') }}">録画管理</a>
                 @endcan
 
                     <a class="dropdown-item" href="{{ route('logout') }}">ログアウト</a>
+
+
                 </div>
             </li>
         </ul>
